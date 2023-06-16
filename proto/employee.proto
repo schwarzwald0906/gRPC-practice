@@ -1,7 +1,25 @@
 syntax = "proto3";
 
+package employee;
+
+import "proto/date.proto";
+
 message Empolyee {
     int32 id = 1;
     string name = 2;
     string mail = 3;
+    Occupation occupation = 4;
+    map<string, Company.Project> project = 6;
+    date.Date birthDate = 9;
+}
+
+enum Occupation {
+    Occupation_UNKNOWN = 0;
+    ENGNIEER = 1;
+    DESIGNER = 2;
+    MANAGER = 3;
+}
+
+message Company {
+    message Project {}
 }
